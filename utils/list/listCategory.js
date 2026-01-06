@@ -13,10 +13,30 @@ export function initNewsCategories() {
         
         for (let i = 0; i < categories.length; i++) {   // 각 카테고리 탭 생성
             const cell = document.createElement('li');
-            cell.className = 'news-category';
+            cell.className = 'news-category available-medium14';
             cell.id = `category-${toSlug(categories[i])}`;
-            cell.innerHTML = categories[i];
 
+            const cateName = document.createElement('div');
+            cateName.classList = 'news-category-text';
+            cateName.innerHTML = categories[i];
+            cell.appendChild(cateName);
+
+            // 각 카테고리 클릭 시
+            cell.addEventListener('click', () => {
+                // 모든 카테고리에서 active효과 삭제
+                const allCategory = document.querySelectorAll('.news-category.active');
+                allCategory.forEach(e => {
+                    e.classList.remove('active', 'selected-bold14');
+                    e.classList.add('available-medium14');
+                });
+
+                // 선택 카테고리 active효과 추가
+                let cate = document.getElementById(`category-${toSlug(categories[i])}`);
+                cate.classList.remove('available-medium14');
+                cate.classList.add('active', 'selected-bold14');
+
+            });
+            
             fragment.appendChild(cell); // fragment에 생성된 카테고리 추가
         }
         category_container.appendChild(fragment);   // 컨테이너에 fragment 추가
