@@ -20,22 +20,18 @@ export function initNewsCategories() {
             cateName.classList = 'news-category-text';
             cateName.innerHTML = categories[i];
             cell.appendChild(cateName);
-
+            
             // 각 카테고리 클릭 시
             cell.addEventListener('click', () => {
-                // 모든 카테고리에서 active효과 삭제
-                const allCategory = document.querySelectorAll('.news-category.active');
-                allCategory.forEach(e => {
-                    e.classList.remove('active', 'selected-bold14');
-                    e.classList.add('available-medium14');
-                });
-
-                // 선택 카테고리 active효과 추가
-                let cate = document.getElementById(`category-${toSlug(categories[i])}`);
-                cate.classList.remove('available-medium14');
-                cate.classList.add('active', 'selected-bold14');
-
+                categorySetActive(categories[i]);
             });
+
+            // 초기 렌더 시 첫번째 카테고리가 자동으로 활성화상태
+            if (i == 0) {
+                cell.classList.toggle('available-medium14');
+                cell.classList.toggle('active');
+                cell.classList.toggle('selected-bold14');
+            }
             
             fragment.appendChild(cell); // fragment에 생성된 카테고리 추가
         }
@@ -43,6 +39,22 @@ export function initNewsCategories() {
     });
     
     return category_container;  // 컨테이너 반환
+}
+
+function categorySetActive(category) {
+    // 현재 활성화된 카테고리에서 active효과 삭제
+    const prevCategory = document.querySelectorAll('.news-category.active');
+    prevCategory.forEach(e => {
+        e.classList.toggle('active');
+        e.classList.toggle('selected-bold14');
+        e.classList.toggle('available-medium14');
+    });
+
+    // 선택 카테고리 active효과 추가
+    let cate = document.getElementById(`category-${toSlug(category)}`);
+    cate.classList.toggle('available-medium14');
+    cate.classList.toggle('active');
+    cate.classList.toggle('selected-bold14');
 }
 
 // 카테고리id 지정하기 전에 정리
