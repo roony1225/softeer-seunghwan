@@ -286,6 +286,16 @@ ul, ol {
     background-color: var(--surface-brand-alt);
     color: var(--text-white-default);
 }
+.news-category:hover {
+    text-decoration: underline;
+}
+/* .news-category li .news-category-text {
+    margin-right: auto;
+}
+.news-category li .cate-count {
+    text-align: right;
+    white-space: nowrap;
+} */
 
 .list-content-container {
     margin: 24px;
@@ -327,7 +337,7 @@ ul, ol {
 }
 .list-main-news img {
     object-fit: cover;
-    width: 100%;
+    width: 320px;
     height: 200px;
 }
 .list-main-news:hover {
