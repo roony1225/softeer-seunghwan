@@ -20,3 +20,8 @@ export function getNewsByCategory(category) {
     // 지정 카테고리 별 뉴스 반환
     return newsData.filter(n => n.category === category);
 }
+
+export function getTotalNewsCount() {
+    // 전체 뉴스 개수 반환
+    return newsData.length;
+}

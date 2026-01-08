@@ -1,5 +1,6 @@
 import { presses } from '../../data/presses.js';
 import { updateView } from '../updateView.js';
+import { getTotalNewsCount } from '../../store/newsStore.js';
 
 let currentPage = 0;
 let currentData = presses;

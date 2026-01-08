@@ -1,5 +1,6 @@
 import { getCategories, getNewsByCategory } from "../../store/newsStore.js";
 import { initListCategories } from "./listCategory.js";
+import { initListContent } from "./listContent.js";
 
 let categories = null;
 
@@ -10,13 +11,11 @@ export function renderList({ container, data, page }) {
 
     categories = getCategories();
     const category_container = initListCategories(categories);    // 뉴스 카테고리란 생성
-    const temp = document.createElement('div');
-    temp.id = 'news-list-container';
-    temp.innerHTML = `${getNewsByCategory(categories[0])[0].mainTitle}`;
+    const content_container = initListContent();
     // 작업중
 
     fragment.appendChild(category_container);   // 뉴스 카테고리 추가
-    fragment.appendChild(temp);
+    fragment.appendChild(content_container);
 
     container.appendChild(fragment);
 }

@@ -287,6 +287,70 @@ ul, ol {
     color: var(--text-white-default);
 }
 
+.list-content-container {
+    margin: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.list-content-header {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+}
+.list-content-header img {
+    width: auto;
+    height: 20px;
+}
+.list-content-header button {
+    width: 72px;
+    height: 24px;
+    background-color: var(--surface-alt);
+    border: 1px solid var(--border-default);
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list-content-body {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+.list-main-news {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.list-main-news img {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+}
+.list-main-news:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.list-related-news {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.list-related-news .tab {
+    color: var(--text-bold);
+}
+.list-related-news .tab:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.list-related-news .foot {
+    color: var(--text-weak);
+}
+
 
 /* 모달 */
 .modal-overlay {
