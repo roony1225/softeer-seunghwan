@@ -1,5 +1,5 @@
 import { getNewsByCategory, findFirstPage } from "../../store/newsStore.js";
-import { updatePage } from "./listController.js";
+import { getNewsDuration, updatePage } from "./listController.js";
 
 export function initListCategories(categories) {
     const fragment = document.createDocumentFragment(); // DOM 한번만 조작
@@ -13,6 +13,12 @@ export function initListCategories(categories) {
         cell.className = 'news-category available-medium14';
         cell.id = `category-${categories[i]}`;
 
+        // 상태 바
+        const progress_bar = document.createElement('span');
+        progress_bar.className = 'progress-bar';
+        cell.appendChild(progress_bar);
+
+        // 카테고리 종류 텍스트
         const cateName = document.createElement('div');
         cateName.classList = 'news-category-text';
         cateName.innerHTML = categories[i];
@@ -28,6 +34,9 @@ export function initListCategories(categories) {
             cell.classList.toggle('available-medium14');
             cell.classList.toggle('active');
             cell.classList.toggle('selected-bold14');
+
+            let bar = cell.querySelector('.progress-bar');            
+            bar.style.animation = `fillProgress ${getNewsDuration()/1000}s linear forwards`
 
             let count = document.createElement('div');
             count.className = `cate-count`;

@@ -29,10 +29,12 @@ function createItem(item) {
         </header>
         <section class="list-content-body">
             <div class="list-main-news">
-                <img id="list-main-news-image" src=${item.mainImg}>
+                <div class="list-main-news-image-wrapper">
+                    <img id="list-main-news-image" src=${item.mainImg}>
+                </div>
                 <span id="list-main-news-title" class="available-medium16" style="color:var(--text-strong);">${item.mainTitle}</span>
             </div>
-            <ul id="list-related-news" class="list-related-news"></ul>
+            <ul id="list-related-news" class="list-related-news" style="whiteSpace: nowrap; overflow: hidden"></ul>
         </section>
     `;
 
